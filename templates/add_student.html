@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <style>
+        body {
+            background-image: url('static/images/room_bg.jpg');
+            background-size: cover;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            margin: 10px;
+            font-weight: bold;
+        }
+        h2 {
+            font-size: 40px;
+            color: black;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            text-decoration: underline;
+            font-weight: bold;
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+
+
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size:20px;
+        }
+        .form-group input {
+            width: 95%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size:15px;
+        }
+        .submit-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .submit-btn img {
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Add Student</h2>
+    </div>
+    <div class="form-container">
+        <!-- Flash messages display -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="student_name">Student Name:</label>
+                <input type="text" id="student_name" name="student_name" required placeholder="Enter Student Name">
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter Email">
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone Number:</label>
+                <input type="tel" id="phone_number" name="phone_number" required placeholder="Enter Phone Number">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required placeholder="Enter Address">
+            </div>
+            <div class="form-group">
+                <label for="room_id">Room ID:</label>
+                <input type="text" id="room_id" name="room_id" required placeholder="Enter Room ID">
+            </div>
+            <button type="submit" class="submit-btn">
+                Add Student
+                <img src="static/images/students.jpg" alt="Add Icon" />
+            </button>
+        </form>
+    </div>
+</body>
+</html>

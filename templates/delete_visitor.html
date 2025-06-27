@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Visitor</title>
+    <style>
+        body {
+            background-image: url('static/images/bgimg.jpg');
+            background-size: cover;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: transparent;
+            padding: 10px;
+            text-align: center;
+            border-radius: 15px;
+            margin: 5px;
+        }
+        h1 {
+            font-size: 48px;
+            color: black;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            background-color: rgba(255, 254, 252, 0.527);
+            text-decoration: underline;
+            display: inline-block;
+        }
+        .container {
+            display: flex;
+            height: calc(100vh - 150px);
+            margin: 10px 0;
+        }
+        .sidebar {
+            width: 400px;
+            padding: 25px;
+            border-radius: 20px;
+            background-color: rgba(255, 254, 252, 0.527);
+            color: black;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .vertical-line {
+            border-left: 5px solid black;
+            margin: 0 10px;
+            height: calc(100vh - 150px);
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 10px;
+            border-radius: 15px;
+            color: black;
+            background-color: rgba(255, 254, 252, 0.527);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            height: calc(100vh - 170px);
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the form horizontally */
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            color: black;
+            background-color: rgba(255, 254, 252, 0.527);
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4); 
+            margin-bottom: 10px;
+        }
+        .option:hover {
+            background-color: rgba(255, 254, 252, 0.7);
+        }
+        .option img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+        }
+        span {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0;
+        }
+        h2 {
+            font-size: 50px;
+            font-weight: bolder;
+            text-align: center;
+        }
+        p {
+            font-size: 30px;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .form-container {
+            max-width: 600px; /* Adjusted form width */
+            width: 100%;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .form-container h2 {
+            text-align: center;
+            font-size: 32px;
+            color: black;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size:20px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px; /* Adjusted padding */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size:15px;
+        }
+        .submit-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #dc3545; /* Danger color for delete */
+            color: white;
+            padding: 10px 15px; /* Adjusted padding */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .submit-btn img {
+            width: 20px; /* Smaller icon size */
+            height: 20px; /* Smaller icon size */
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        function loadContent(url) {
+            window.location.href = url; // Redirects to the specified URL
+        }
+    </script>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Delete Visitor</h1>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="option" onclick="loadContent('/delete_student')">
+                <img src="static/images/delete_student.jpg" alt="Delete Student" />
+                <span>Delete Student</span>
+            </div>
+            <div class="option" onclick="loadContent('/delete_room')">
+                <img src="static/images/delete_bed.jpg" alt="Delete Room" />
+                <span>Delete Room</span>
+            </div>
+            <div class="option" onclick="loadContent('/delete_payment')">
+                <img src="static/images/delete_payment.jpg" alt="Delete Payment" />
+                <span>Delete Payment</span>
+            </div>
+            <div class="option" onclick="loadContent('/delete_visitor')">
+                <img src="static/images/delete_visitor.jpg" alt="Delete Visitor" />
+                <span>Delete Visitor</span>
+            </div>
+        </div>
+
+        <div class="vertical-line"></div>
+
+        <div class="main-content">
+            <div class="form-container">
+                <h2>Delete Visitor Information</h2>
+                <form method="POST" action="/delete_visitor">
+                    <div class="form-group">
+                        <label for="visitor_id">Visitor ID:</label>
+                        <input type="text" id="visitor_id" name="visitor_id" required placeholder="Enter Visitor ID to Delete">
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        Delete Visitor
+                        <img src="static/images/delete_visitor.jpg" alt="Delete Icon" />
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
